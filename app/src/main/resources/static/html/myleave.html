@@ -1,0 +1,594 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Leave</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="/css/myleave.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+
+            <span>Mens PG</span>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+
+            <a href="tenantdashboard.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="mydetails.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+
+                My Details
+
+            </a>
+
+
+            <a href="myroom.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-bed"></i>
+                </span>
+
+                My Room
+
+            </a>
+
+
+            <a href="mymovement.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-right-left"></i>
+                </span>
+
+                My Movements
+
+            </a>
+
+
+            <a href="mypayment.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-money-bill"></i>
+                </span>
+
+                My Payments
+
+            </a>
+
+
+            <a href="myfood.html"
+               class="menu-item" id="myFoodMenu">
+
+                <span class="icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </span>
+
+                My Food
+
+            </a>
+
+
+            <a href="myleave.html"
+               class="menu-item active">
+
+                <span class="icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </span>
+
+                My Leave
+
+            </a>
+
+
+            <a href="tenantnotice.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </span>
+
+                Notices
+
+            </a>
+
+
+            <a href="mycomplaints.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-message"></i>
+                </span>
+
+                My Complaints
+
+            </a>
+
+
+        </nav>
+
+
+        <button class="logout-btn"
+                onclick="logout()">
+
+            <span class="icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </span>
+
+            Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOPBAR
+        ================================================== -->
+
+        <div class="topbar">
+
+
+            <div>
+
+                <h1>My Leave</h1>
+
+                <p>
+                    Inform your upcoming leave and view your leave history
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <!-- NOTIFICATION -->
+
+                <div class="notification-wrapper">
+
+
+                    <button class="notification-btn"
+                            onclick="toggleNotifications()">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="notification-count"
+                              id="notificationCount">
+                        </span>
+
+                    </button>
+
+
+                    <div class="notification-dropdown"
+                         id="notificationDropdown">
+
+
+                        <div class="notification-header">
+
+                            <h3>Notifications</h3>
+
+                            <button onclick="markAllNotificationsRead()">
+
+                                Mark all read
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="notification-list"
+                             id="notificationList">
+
+                            <div class="notification-empty">
+
+                                No notifications
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROFILE -->
+
+                <div class="profile">
+
+
+                    <div class="profile-icon">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="loggedUsername">
+                            Tenant
+                        </strong>
+
+                        <small>
+                            TENANT
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             UPCOMING LEAVE
+        ================================================== -->
+
+        <div class="dashboard-card">
+
+
+            <div class="card-header">
+
+
+                <div>
+
+                    <h3>Upcoming Leave</h3>
+
+                    <p>
+                        Your planned upcoming leaves
+                    </p>
+
+                </div>
+
+
+                <button class="add-leave-btn"
+                        onclick="openLeaveModal()">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Leave
+
+                </button>
+
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+
+                <table>
+
+
+                    <thead>
+
+                    <tr>
+
+                        <th>Leave Date</th>
+
+                        <th>Return Date</th>
+
+                        <th>Reason</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="upcomingLeaveBody">
+
+                    <tr>
+
+                        <td colspan="5"
+                            class="loading-cell">
+
+                            Loading...
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             LEAVE HISTORY
+        ================================================== -->
+
+        <div class="dashboard-card">
+
+
+            <div class="card-header">
+
+
+                <div>
+
+                    <h3>Leave History</h3>
+
+                    <p>
+                        Your previous leave records
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+
+                <table>
+
+
+                    <thead>
+
+                    <tr>
+
+                        <th>Leave Date</th>
+
+                        <th>Return Date</th>
+
+                        <th>Reason</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="leaveHistoryBody">
+
+                    <tr>
+
+                        <td colspan="4"
+                            class="loading-cell">
+
+                            Loading...
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ==================================================
+     ADD / EDIT LEAVE MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="leaveModal">
+
+
+    <div class="leave-modal">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h3 id="modalTitle">
+                    Inform Leave
+                </h3>
+
+                <p>
+                    Enter your leave details
+                </p>
+
+            </div>
+
+
+            <button class="close-btn"
+                    onclick="closeLeaveModal()">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+        </div>
+
+
+
+        <form id="leaveForm">
+
+
+            <div class="form-group">
+
+                <label>
+                    Leave Date
+                </label>
+
+                <input type="date"
+                       id="leaveDate"
+                       required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Return Date
+                </label>
+
+                <input type="date"
+                       id="returnDate"
+                       required>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Reason
+                </label>
+
+                <input type="text"
+                       id="leaveReason"
+                       placeholder="Enter reason"
+                       required>
+
+            </div>
+
+
+
+            <div class="modal-actions">
+
+
+                <button type="button"
+                        class="cancel-btn"
+                        onclick="closeLeaveModal()">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="save-btn">
+
+                    Save Leave
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+<script src="/js/auth.js"></script>
+<script src="/js/myleave.js"></script>
+
+
+</body>
+
+</html>
+```

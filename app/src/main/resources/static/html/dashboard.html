@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <!-- Dashboard CSS -->
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <h2>Aadhya</h2>
+
+                <span>Mens PG</span>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <nav class="sidebar-menu">
+
+
+                <!-- DASHBOARD -->
+
+                <a href="dashboard.html" class="menu-item active" id="dashboardMenu">
+
+                    <span class="icon">⌂</span>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <!-- TENANT -->
+
+                <a href="tenant.html" class="menu-item">
+
+                    <span class="icon">👤</span>
+
+                    <span>Tenant Management</span>
+
+                </a>
+
+
+                <!-- ROOM -->
+
+                <a href="room.html" class="menu-item">
+
+                    <span class="icon">🏠</span>
+
+                    <span>Room Management</span>
+
+                </a>
+
+
+                <!-- MOVEMENT -->
+
+                <a href="movement.html" class="menu-item">
+
+                    <span class="icon">↔</span>
+
+                    <span>Movement Tracking</span>
+
+                </a>
+
+
+                <!-- PAYMENT -->
+
+                <a href="payment.html" class="menu-item">
+
+                    <span class="icon">₹</span>
+
+                    <span>Payment Management</span>
+
+                </a>
+
+
+
+                <!-- FOOD -->
+
+                <a href="food.html" class="menu-item" id="foodMenu">
+
+                    <span class="icon">🍽</span>
+
+                    <span>Food Management</span>
+
+                </a>
+
+                <a href="leave.html" class="menu-item">
+
+                    <span class="icon">📅</span>
+
+                    <span>Leave Management</span>
+
+                </a>
+
+
+                 <!-- ACCOUNTS -->
+
+                <a href="accounts.html" class="menu-item" id="accountsMenu">
+
+                    <span class="icon">💰</span>
+
+                    <span>Accounts</span>
+
+                </a>
+
+
+                <!-- NOTICES -->
+
+                <a href="notice.html" class="menu-item">
+
+                    <span class="icon">🔔</span>
+
+                    <span>Notices</span>
+
+                </a>
+
+
+                <!-- COMPLAINTS -->
+
+                <a href="complaints.html" class="menu-item">
+
+                    <span class="icon">📝</span>
+
+                    <span>Complaints</span>
+
+                </a>
+
+
+                <!-- USER MANAGEMENT -->
+
+                <a href="user.html" class="menu-item" id="usersMenu">
+
+                    <span class="icon">👥</span>
+
+                    <span>User Management</span>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- LOGOUT -->
+
+            <button class="logout-btn" id="logoutBtn">
+
+                <span class="icon">↪</span>
+
+                Logout
+
+            </button>
+
+
+        </aside>
+
+
+
+        <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- ==================================================
+             TOP BAR
+        ================================================== -->
+
+            <header class="topbar">
+
+
+                <div>
+
+                    <h1>Dashboard</h1>
+
+                    <p>
+
+                        Welcome back,
+
+                        <span id="username">
+                            User
+                        </span>
+
+                        👋
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- PROFILE -->
+
+                <div class="profile">
+
+
+                    <div class="profile-icon">
+
+                        👤
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="profileUsername">
+                            User
+                        </strong>
+
+                        <small id="profileRole">
+                            ADMIN
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- ==================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+            <section class="cards">
+
+
+                <!-- TOTAL TENANTS -->
+
+                <div class="card">
+
+                    <div class="card-icon tenant-icon">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <p>Total Tenants</p>
+
+                        <h2 id="totalTenants">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- OCCUPIED ROOMS -->
+
+                <div class="card">
+
+                    <div class="card-icon occupied-icon">
+                        🏠
+                    </div>
+
+                    <div>
+
+                        <p>Occupied Rooms</p>
+
+                        <h2 id="occupiedRooms">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AVAILABLE ROOMS -->
+
+                <div class="card">
+
+                    <div class="card-icon available-icon">
+                        🛏
+                    </div>
+
+                    <div>
+
+                        <p>Available Rooms</p>
+
+                        <h2 id="availableRooms">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MONTHLY COLLECTION -->
+
+                <div class="card" id="monthlyCollectionCard">
+
+                    <div class="card-icon collection-icon">
+                        ₹
+                    </div>
+
+                    <div>
+
+                        <p>Monthly Collection</p>
+
+                        <h2 id="monthlyCollection">
+                            ₹0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PENDING RENT -->
+
+                <div class="card">
+
+                    <div class="card-icon pending-icon">
+                        ⏳
+                    </div>
+
+                    <div>
+
+                        <p>Pending Rent</p>
+
+                        <h2 id="pendingRent">
+                            ₹0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- OPEN COMPLAINTS -->
+
+                <div class="card">
+
+                    <div class="card-icon complaint-icon">
+                        📝
+                    </div>
+
+                    <div>
+
+                        <p>Open Complaints</p>
+
+                        <h2 id="openComplaints">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================================
+             DASHBOARD GRID
+        ================================================== -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- ==================================================
+                 RECENT PAYMENTS
+            ================================================== -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-header">
+
+
+                        <div>
+
+                            <h3>
+                                💳 Recent Payments
+                            </h3>
+
+                            <p>
+                                Latest payment records
+                            </p>
+
+                        </div>
+
+
+                        <a href="payment.html">
+                            View All
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- PAYMENT TABLE -->
+
+                    <div class="table-container">
+
+
+                        <table>
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Tenant
+                                    </th>
+
+                                    <th>
+                                        Amount
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Date
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="recentPaymentsTable">
+
+
+                                <tr>
+
+                                    <td colspan="4" class="empty-message">
+
+                                        Loading payments...
+
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ==================================================
+                 RECENT COMPLAINTS
+            ================================================== -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-header">
+
+
+                        <div>
+
+                            <h3>
+                                📝 Recent Complaints
+                            </h3>
+
+                            <p>
+                                Latest complaints
+                            </p>
+
+                        </div>
+
+
+                        <a href="complaints.html">
+                            View All
+                        </a>
+
+
+                    </div>
+
+
+
+                    <!-- COMPLAINT LIST -->
+
+                    <div id="recentComplaints" class="complaint-list">
+
+
+                        <div class="empty-message">
+
+                            No recent complaints
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/dashboard.js"></script>
+
+
+</body>
+
+</html>

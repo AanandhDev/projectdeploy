@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Notices</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="/css/tenantnotice.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+
+            <span>Mens PG</span>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="tenantdashboard.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="mydetails.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+
+                My Details
+
+            </a>
+
+
+            <a href="myroom.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-bed"></i>
+                </span>
+
+                My Room
+
+            </a>
+
+
+            <a href="mymovement.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-right-left"></i>
+                </span>
+
+                My Movements
+
+            </a>
+
+
+            <a href="mypayment.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-money-bill"></i>
+                </span>
+
+                My Payments
+
+            </a>
+
+
+            <a href="myfood.html"
+               class="menu-item" id="myFoodMenu">
+
+                <span class="icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </span>
+
+                My Food
+
+            </a>
+
+
+            <a href="myleave.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </span>
+
+                My Leave
+
+            </a>
+
+
+            <a href="tenantnotice.html"
+               class="menu-item active">
+
+                <span class="icon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </span>
+
+                Notices
+
+            </a>
+
+
+            <a href="mycomplaints.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-message"></i>
+                </span>
+
+                My Complaints
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button class="logout-btn"
+                onclick="logout()">
+
+            <span class="icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </span>
+
+            Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1>Notices</h1>
+
+                <p>
+                    View important announcements from the PG management
+                </p>
+
+            </div>
+
+              <div class="topbar-right">
+
+
+                <!-- NOTIFICATION -->
+
+                <div class="notification-wrapper">
+
+
+                    <button class="notification-btn"
+                            onclick="toggleNotifications()">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span id="notificationCount"
+                              class="notification-count">
+                        </span>
+
+                    </button>
+
+
+                    <div id="notificationDropdown"
+                         class="notification-dropdown">
+
+
+                        <div class="notification-header">
+
+                            <h3>Notifications</h3>
+
+                            <button onclick="markAllNotificationsRead()">
+                                Mark all read
+                            </button>
+
+                        </div>
+
+
+                        <div id="notificationList"
+                             class="notification-list">
+
+                            <div class="notification-empty">
+                                No notifications
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+            <!-- PROFILE -->
+
+            <div class="profile">
+
+
+                <div class="profile-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="loggedUsername">
+                        Tenant
+                    </strong>
+
+                    <small>
+                        TENANT
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ==================================================
+             NOTICE SECTION
+        ================================================== -->
+
+        <section class="notice-card">
+
+
+            <!-- HEADER -->
+
+            <div class="notice-card-header">
+
+
+                <div>
+
+                    <h3>Notice Board</h3>
+
+                    <p>
+                        Latest notices and announcements
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 FILTER
+            ================================================== -->
+
+            <div class="toolbar">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchNotice"
+                        placeholder="Search notice...">
+
+                </div>
+
+
+
+                <!-- STATUS FILTER -->
+
+                <select id="statusFilter"
+                        class="filter-select">
+
+                    <option value="ALL">
+                        All Status
+                    </option>
+
+                    <option value="ACTIVE">
+                        Active
+                    </option>
+
+                    <option value="UPCOMING">
+                        Upcoming
+                    </option>
+
+                    <option value="COMPLETED">
+                        Completed
+                    </option>
+
+                    <option value="CANCELLED">
+                        Cancelled
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Notice
+                        </th>
+
+                        <th>
+                            Description
+                        </th>
+
+                        <th>
+                            Posted Date
+                        </th>
+
+                        <th>
+                            Effective Date
+                        </th>
+
+                        <th>
+                            Time
+                        </th>
+
+                        <th>
+                            Feedback
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="noticeTableBody">
+
+
+                        <tr>
+
+                            <td colspan="8"
+                                class="empty-row">
+
+                                No notices available
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     VIEW NOTICE MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="viewNoticeModal">
+
+
+    <div class="modal">
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>
+                    Notice Details
+                </h2>
+
+                <p>
+                    Complete notice information
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    onclick="closeViewModal()">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- CONTENT -->
+
+        <div id="viewNoticeContent"
+             class="view-content">
+
+        </div>
+
+
+
+        <!-- BUTTON -->
+
+        <div class="modal-actions">
+
+            <button class="cancel-btn"
+                    onclick="closeViewModal()">
+
+                Close
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     FEEDBACK MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="feedbackModal">
+
+
+    <div class="modal feedback-modal">
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>
+                    Give Feedback
+                </h2>
+
+                <p>
+                    Share your feedback about this notice
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    onclick="closeFeedbackModal()">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- NOTICE TITLE -->
+
+        <div class="feedback-notice">
+
+            <span>
+                Notice
+            </span>
+
+            <strong id="feedbackNoticeTitle">
+                -
+            </strong>
+
+        </div>
+
+
+
+        <!-- FEEDBACK -->
+
+        <div class="form-group">
+
+
+            <label>
+                Feedback <span>*</span>
+            </label>
+
+
+            <textarea
+                id="feedbackText"
+                rows="5"
+                placeholder="Enter your feedback..."
+                required></textarea>
+
+
+        </div>
+
+
+
+        <!-- BUTTONS -->
+
+        <div class="modal-actions">
+
+
+            <button class="cancel-btn"
+                    onclick="closeFeedbackModal()">
+
+                Cancel
+
+            </button>
+
+
+            <button class="save-btn"
+                    onclick="submitFeedback()">
+
+                Submit Feedback
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="/js/auth.js"></script>
+
+
+<script src="/js/tenantnotice.js"></script>
+
+
+</body>
+
+</html>

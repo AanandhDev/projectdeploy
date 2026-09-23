@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Accounts Management</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Accounts CSS -->
+
+    <link rel="stylesheet"
+          href="/css/accounts.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+
+            <span>Mens PG</span>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="dashboard.html"
+               class="menu-item">
+
+                <span class="icon">⌂</span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="tenant.html"
+               class="menu-item">
+
+                <span class="icon">👤</span>
+
+                <span>Tenant Management</span>
+
+            </a>
+
+
+            <a href="room.html"
+               class="menu-item">
+
+                <span class="icon">🏠</span>
+
+                <span>Room Management</span>
+
+            </a>
+
+
+            <a href="movement.html"
+               class="menu-item">
+
+                <span class="icon">↔</span>
+
+                <span>Movement Tracking</span>
+
+            </a>
+
+
+            <a href="payment.html"
+               class="menu-item">
+
+                <span class="icon">₹</span>
+
+                <span>Payment Management</span>
+
+            </a>
+
+
+            <a href="food.html"
+               class="menu-item">
+
+                <span class="icon">🍽</span>
+
+                <span>Food Management</span>
+
+            </a>
+
+
+            <a href="leave.html"
+               class="menu-item">
+
+                <span class="icon">📅</span>
+
+                <span>Leave Management</span>
+
+            </a>
+
+
+            <a href="accounts.html"
+               class="menu-item active">
+
+                <span class="icon">💰</span>
+
+                <span>Accounts</span>
+
+            </a>
+
+
+            <a href="notice.html"
+               class="menu-item">
+
+                <span class="icon">🔔</span>
+
+                <span>Notices</span>
+
+            </a>
+
+
+            <a href="complaints.html"
+               class="menu-item">
+
+                <span class="icon">📝</span>
+
+                <span>Complaints</span>
+
+            </a>
+
+
+            <a href="user.html"
+               class="menu-item">
+
+                <span class="icon">👥</span>
+
+                <span>User Management</span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button class="logout-btn"
+                id="logoutBtn">
+
+            <span class="icon">↪</span>
+
+            <span>Logout</span>
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1>Accounts Management</h1>
+
+                <p>
+                    Track hostel income, expenses and net profit
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile">
+
+
+                <div class="profile-icon">
+
+                    👤
+
+                </div>
+
+
+                <div>
+
+                    <strong id="profileUsername">
+                        User
+                    </strong>
+
+                    <small id="profileRole">
+                        ADMIN
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ==================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <section class="summary-cards">
+
+
+            <!-- TOTAL INCOME -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon income-icon">
+
+                    ↗
+
+                </div>
+
+
+                <div>
+
+                    <p>Total Income</p>
+
+                    <h2 id="totalIncome">
+                        ₹0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TOTAL EXPENSE -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon expense-icon">
+
+                    ↘
+
+                </div>
+
+
+                <div>
+
+                    <p>Total Expense</p>
+
+                    <h2 id="totalExpense">
+                        ₹0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- NET PROFIT -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon profit-icon">
+
+                    ₹
+
+                </div>
+
+
+                <div>
+
+                    <p>Net Profit</p>
+
+                    <h2 id="netProfit">
+                        ₹0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             TRANSACTION CARD
+        ================================================== -->
+
+        <section class="accounts-card">
+
+
+            <!-- HEADER -->
+
+            <div class="accounts-card-header">
+
+
+                <div>
+
+                    <h3>Transactions</h3>
+
+                    <p>
+                        View income and expense transactions
+                    </p>
+
+                </div>
+
+
+                <!-- ADD EXPENSE -->
+
+                <button class="add-expense-btn"
+                        id="openExpenseBtn">
+
+                    + Add Expense
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TOOLBAR
+            ================================================== -->
+
+            <div class="toolbar">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+
+                    <span>🔍</span>
+
+
+                    <input type="text"
+                           id="searchInput"
+                           placeholder="Search transaction...">
+
+
+                </div>
+
+
+
+                <!-- STATUS FILTER -->
+
+                <select id="statusFilter"
+                        class="status-filter">
+
+
+                    <option value="ALL">
+                        All Status
+                    </option>
+
+
+                    <option value="INCOME">
+                        Income
+                    </option>
+
+
+                    <option value="EXPENSE">
+                        Expense
+                    </option>
+
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Transaction ID
+                        </th>
+
+                        <th>
+                            Description
+                        </th>
+
+                        <th>
+                            Amount
+                        </th>
+
+                        <th>
+                            Transaction Date
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="transactionTableBody">
+
+
+                    <tr>
+
+                        <td colspan="5"
+                            class="empty-message">
+
+                            No transactions available
+
+                        </td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     ADD EXPENSE MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="expenseModal">
+
+
+    <div class="modal">
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>Add Expense</h2>
+
+                <p>
+                    Record a new hostel expense
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    id="closeExpenseBtn">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form id="expenseForm">
+
+
+            <!-- EXPENSE -->
+
+            <div class="form-group">
+
+
+                <label>
+                    Expense <span>*</span>
+                </label>
+
+
+                <select id="expenseType"
+                        required>
+
+
+                    <option value="">
+                        Select Expense
+                    </option>
+
+
+                    <option value="Maintenance">
+                        Maintenance
+                    </option>
+
+
+                    <option value="Water Bill">
+                        Water Bill
+                    </option>
+
+
+                    <option value="Current Bill">
+                        Current Bill
+                    </option>
+
+
+                    <option value="Workers Salary">
+                        Workers Salary
+                    </option>
+
+
+                    <option value="Food Expense">
+                        Food Expense
+                    </option>
+
+
+                    <option value="Cleaning">
+                        Cleaning
+                    </option>
+
+
+                    <option value="Internet Bill">
+                        Internet Bill
+                    </option>
+
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- CUSTOM DESCRIPTION -->
+
+            <div class="form-group"
+                 id="otherExpenseGroup"
+                 style="display: none;">
+
+
+                <label>
+                    Description <span>*</span>
+                </label>
+
+
+                <input type="text"
+                       id="otherExpense"
+                       placeholder="Enter expense description">
+
+
+            </div>
+
+
+
+            <!-- AMOUNT -->
+
+            <div class="form-group">
+
+
+                <label>
+                    Amount <span>*</span>
+                </label>
+
+
+                <div class="amount-input">
+
+
+                    <span>₹</span>
+
+
+                    <input type="number"
+                           id="expenseAmount"
+                           placeholder="Enter amount"
+                           min="1"
+                           required>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- DATE -->
+
+            <div class="form-group">
+
+
+                <label>
+                    Date <span>*</span>
+                </label>
+
+
+                <input type="date"
+                       id="expenseDate"
+                       required>
+
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="modal-actions">
+
+
+                <button type="button"
+                        class="cancel-btn"
+                        id="cancelExpenseBtn">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="save-btn">
+
+                    Add Expense
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+<script src="/js/auth.js"></script>
+<script src="/js/accounts.js"></script>
+
+
+</body>
+
+</html>

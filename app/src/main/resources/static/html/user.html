@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Management</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/user.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+            <span>Mens PG</span>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+
+                <!-- DASHBOARD -->
+
+                <a href="dashboard.html" class="menu-item" id="dashboardMenu">
+
+                    <span class="icon">⌂</span>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <!-- TENANT -->
+
+                <a href="tenant.html" class="menu-item">
+
+                    <span class="icon">👤</span>
+
+                    <span>Tenant Management</span>
+
+                </a>
+
+
+                <!-- ROOM -->
+
+                <a href="room.html" class="menu-item">
+
+                    <span class="icon">🏠</span>
+
+                    <span>Room Management</span>
+
+                </a>
+
+
+                <!-- MOVEMENT -->
+
+                <a href="movement.html" class="menu-item">
+
+                    <span class="icon">↔</span>
+
+                    <span>Movement Tracking</span>
+
+                </a>
+
+
+                <!-- PAYMENT -->
+
+                <a href="payment.html" class="menu-item">
+
+                    <span class="icon">₹</span>
+
+                    <span>Payment Management</span>
+
+                </a>
+
+
+
+                <!-- FOOD -->
+
+                <a href="food.html" class="menu-item" id="foodMenu">
+
+                    <span class="icon">🍽</span>
+
+                    <span>Food Management</span>
+
+                </a>
+
+                <a href="leave.html" class="menu-item">
+
+                    <span class="icon">📅</span>
+
+                    <span>Leave Management</span>
+
+                </a>
+
+
+                 <!-- ACCOUNTS -->
+
+                <a href="accounts.html" class="menu-item" id="accountsMenu">
+
+                    <span class="icon">💰</span>
+
+                    <span>Accounts</span>
+
+                </a>
+
+
+                <!-- NOTICES -->
+
+                <a href="notice.html" class="menu-item">
+
+                    <span class="icon">🔔</span>
+
+                    <span>Notices</span>
+
+                </a>
+
+
+                <!-- COMPLAINTS -->
+
+                <a href="complaints.html" class="menu-item">
+
+                    <span class="icon">📝</span>
+
+                    <span>Complaints</span>
+
+                </a>
+
+
+                <!-- USER MANAGEMENT -->
+
+                <a href="user.html" class="menu-item active" id="usersMenu">
+
+                    <span class="icon">👥</span>
+
+                    <span>User Management</span>
+
+                </a>
+
+
+            </nav>
+
+
+        <button class="logout-btn" onclick="logout()">
+
+            <span class="icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </span>
+
+            Logout
+
+        </button>
+
+    </aside>
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>User Management</h1>
+
+                <p>
+                    Manage system users and account access
+                </p>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div class="profile-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <div>
+
+                    <strong id="loggedUsername">
+                        Admin
+                    </strong>
+
+                    <small id="loggedRole">
+                        ADMIN
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <div class="summary-cards">
+
+
+            <!-- TOTAL -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon total-icon">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </div>
+
+                <div>
+
+                    <p>Total Users</p>
+
+                    <h2 id="totalUsers">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIVE -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon active-icon">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                </div>
+
+                <div>
+
+                    <p>Active Users</p>
+
+                    <h2 id="activeUsers">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- INACTIVE -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon inactive-icon">
+
+                    <i class="fa-solid fa-user-slash"></i>
+
+                </div>
+
+                <div>
+
+                    <p>Inactive Users</p>
+
+                    <h2 id="inactiveUsers">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ==================================================
+             USER TABLE CARD
+        ================================================== -->
+
+        <div class="user-card">
+
+
+            <div class="user-card-header">
+
+                <div>
+
+                    <h3>User Records</h3>
+
+                    <p>
+                        View and manage all system users
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="add-user-btn"
+                    onclick="openCreateModal()">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create User
+
+                </button>
+
+            </div>
+
+
+            <!-- ==================================================
+                 TOOLBAR
+            ================================================== -->
+
+            <div class="toolbar">
+
+
+                <div class="search-box">
+
+                    <span>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search username, name, phone...">
+
+                </div>
+
+
+                <select
+                    id="statusFilter"
+                    class="status-filter">
+
+                    <option value="ALL">
+                        All Status
+                    </option>
+
+                    <option value="ACTIVE">
+                        Active
+                    </option>
+
+                    <option value="INACTIVE">
+                        Inactive
+                    </option>
+
+                </select>
+
+
+                <select
+                    id="roleFilter"
+                    class="status-filter">
+
+                    <option value="ALL">
+                        All Roles
+                    </option>
+
+                    <option value="ADMIN">
+                        Admin
+                    </option>
+
+                    <option value="WARDEN">
+                        Warden
+                    </option>
+
+                    <option value="TENANT">
+                        Tenant
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+            <!-- ==================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                    <tr>
+
+                        <th>Username</th>
+
+                        <th>Name</th>
+
+                        <th>Phone</th>
+
+                        <th>Email</th>
+
+                        <th>Role</th>
+
+                        <th>Status</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="userTableBody">
+
+                    </tbody>
+
+                </table>
+
+
+                <div
+                    id="emptyMessage"
+                    class="empty-message">
+
+                    No users found
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ==================================================
+     CREATE / EDIT USER MODAL
+================================================== -->
+
+<div
+    class="modal-overlay"
+    id="userModal">
+
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="modalTitle">
+                    Create New User
+                </h2>
+
+                <p id="modalSubtitle">
+                    Add a new user account
+                </p>
+
+            </div>
+
+
+            <button
+                class="close-modal"
+                onclick="closeUserModal()">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        <form id="userForm">
+
+            <input
+                type="hidden"
+                id="userId">
+
+
+            <!-- USERNAME -->
+
+            <div class="form-group">
+
+                <label>
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    required>
+
+            </div>
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="fullName"
+                    required>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="form-group">
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    type="text"
+                    id="phone"
+                    required>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    required>
+
+            </div>
+
+
+            <!-- ROLE -->
+
+            <div class="form-group">
+
+                <label>
+                    Role
+                </label>
+
+                <select
+                    id="role"
+                    required>
+
+                    <option value="">
+                        Select Role
+                    </option>
+
+                    <option value="ADMIN">
+                        Admin
+                    </option>
+
+                    <option value="WARDEN">
+                        Warden
+                    </option>
+
+                    <option value="TENANT">
+                        Tenant
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <!-- <div class="form-group">
+
+                <label>
+                    Status
+                </label>
+
+                <select id="status">
+
+                    <option value="ACTIVE">
+                        Active
+                    </option>
+
+                    <option value="INACTIVE">
+                        Inactive
+                    </option>
+
+                </select>
+
+            </div> -->
+
+
+            <!-- PASSWORD -->
+
+            <div id="passwordSection">
+
+                <div class="form-group">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword">
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    onclick="closeUserModal()">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save-btn">
+
+                    <span id="saveButtonText">
+                        Create User
+                    </span>
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     VIEW USER MODAL
+================================================== -->
+
+<div
+    class="modal-overlay"
+    id="viewModal">
+
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    User Details
+                </h2>
+
+                <p>
+                    View user account information
+                </p>
+
+            </div>
+
+
+            <button
+                class="close-modal"
+                onclick="closeViewModal()">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        <div class="details-container">
+
+
+            <div class="detail-item">
+
+                <span>Username</span>
+
+                <strong id="viewUsername">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Name</span>
+
+                <strong id="viewName">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Phone</span>
+
+                <strong id="viewPhone">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Email</span>
+
+                <strong id="viewEmail">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Role</span>
+
+                <strong id="viewRole">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Status</span>
+
+                <strong id="viewStatus">
+                    -
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                class="cancel-btn"
+                onclick="closeViewModal()">
+
+                Close
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     STATUS CONFIRMATION MODAL
+================================================== -->
+
+<div
+    class="modal-overlay"
+    id="statusConfirmModal">
+
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="statusConfirmTitle">
+                    Confirm Status Change
+                </h2>
+
+                <p>
+                    Please confirm this account status change
+                </p>
+
+            </div>
+
+
+            <button
+                class="close-modal"
+                onclick="closeStatusConfirm()">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        <div class="update-details">
+
+            <p>
+                User:
+                <strong id="confirmUsername">
+                    -
+                </strong>
+            </p>
+
+            <p>
+                Current Status:
+                <strong id="confirmCurrentStatus">
+                    -
+                </strong>
+            </p>
+
+            <p>
+                New Status:
+                <strong id="confirmNewStatus">
+                    -
+                </strong>
+            </p>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                class="cancel-btn"
+                onclick="closeStatusConfirm()">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                class="save-btn"
+                onclick="confirmStatusChange()">
+
+                Confirm
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script src="/js/user.js"></script>
+
+</body>
+
+</html>

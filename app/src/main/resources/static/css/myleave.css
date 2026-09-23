@@ -1,0 +1,699 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   BODY
+================================================== */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7f8;
+    color: #333;
+}
+
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ==================================================
+   SIDEBAR
+================================================== */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #1A6B72;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 15px;
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo h2 {
+    color: white;
+    font-size: 25px;
+}
+
+.logo span {
+    color: white;
+    font-size: 13px;
+}
+
+
+/* ==================================================
+   SIDEBAR MENU
+================================================== */
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow-y: auto;
+}
+
+.sidebar-menu::-webkit-scrollbar {
+    width: 0;
+}
+
+
+/* ==================================================
+   MENU ITEM
+================================================== */
+
+.menu-item {
+    text-decoration: none;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: white;
+    color: #1A6B72;
+}
+
+.menu-item.active {
+    background: white;
+    color: #1A6B72;
+}
+
+
+/* ==================================================
+   ICON
+================================================== */
+
+.icon {
+    width: 22px;
+    text-align: center;
+}
+
+
+/* ==================================================
+   LOGOUT
+================================================== */
+
+.logout-btn {
+    margin-top: auto;
+    border: none;
+    background: #ffe5e5;
+    color: #d64545;
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* ==================================================
+   MAIN CONTENT
+================================================== */
+
+.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 30px;
+    min-height: 100vh;
+}
+
+
+/* ==================================================
+   TOPBAR
+================================================== */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.topbar h1 {
+    font-size: 27px;
+    color: #222;
+}
+
+.topbar p {
+    font-size: 13px;
+    color: #777;
+    margin-top: 3px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* ==================================================
+   PROFILE
+================================================== */
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #e8f3f4;
+    color: #1A6B72;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile strong {
+    display: block;
+    font-size: 13px;
+}
+
+.profile small {
+    display: block;
+    font-size: 10px;
+    color: #888;
+}
+
+
+/* ==================================================
+   NOTIFICATION
+================================================== */
+
+.notification-wrapper {
+    position: relative;
+}
+
+.notification-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: #1A6B72;
+    font-size: 17px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.notification-count {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #d64545;
+    color: white;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-count:empty {
+    display: none;
+}
+
+
+/* ==================================================
+   NOTIFICATION DROPDOWN
+================================================== */
+
+.notification-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 340px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    z-index: 100;
+    overflow: hidden;
+}
+
+.notification-dropdown.show {
+    display: block;
+}
+
+.notification-header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-header h3 {
+    font-size: 14px;
+}
+
+.notification-header button {
+    border: none;
+    background: none;
+    color: #1A6B72;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.notification-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background: #f7fafb;
+}
+
+.notification-item.unread {
+    background: #eef8f8;
+}
+
+.notification-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e8f3f4;
+    color: #1A6B72;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.notification-content strong {
+    font-size: 10px;
+    display: block;
+}
+
+.notification-content p {
+    font-size: 9px;
+    color: #777;
+    margin-top: 3px;
+}
+
+.notification-time {
+    font-size: 8px;
+    color: #aaa;
+    margin-top: 3px;
+}
+
+.notification-empty {
+    padding: 30px;
+    text-align: center;
+    color: #999;
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   DASHBOARD CARD
+================================================== */
+
+.dashboard-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+
+/* ==================================================
+   CARD HEADER
+================================================== */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-header h3 {
+    font-size: 14px;
+    color: #222;
+}
+
+.card-header p {
+    font-size: 9px;
+    color: #888;
+    margin-top: 3px;
+}
+
+
+/* ==================================================
+   ADD LEAVE BUTTON
+================================================== */
+
+.add-leave-btn {
+    border: none;
+    background: #1A6B72;
+    color: white;
+    padding: 9px 14px;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.add-leave-btn:hover {
+    opacity: 0.9;
+}
+
+.add-leave-btn i {
+    margin-right: 5px;
+}
+
+
+/* ==================================================
+   TABLE
+================================================== */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-wrapper th {
+    text-align: left;
+    font-size: 10px;
+    color: #777;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.table-wrapper td {
+    padding: 12px 10px;
+    font-size: 10px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.loading-cell {
+    text-align: center;
+    color: #999;
+    padding: 25px !important;
+}
+
+
+/* ==================================================
+   STATUS
+================================================== */
+
+.leave-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.leave-status.planned {
+    background: #fff3df;
+    color: #c77b00;
+}
+
+.leave-status.completed {
+    background: #e7f7ed;
+    color: #218838;
+}
+
+.leave-status.cancelled {
+    background: #ffe8e8;
+    color: #d64545;
+}
+
+
+/* ==================================================
+   ACTION BUTTONS
+================================================== */
+
+.action-buttons {
+    display: flex;
+    gap: 7px;
+}
+
+.edit-btn,
+.cancel-leave-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-btn {
+    background: #e8f3f4;
+    color: #1A6B72;
+}
+
+.cancel-leave-btn {
+    background: #ffe8e8;
+    color: #d64545;
+}
+
+.edit-btn:hover,
+.cancel-leave-btn:hover {
+    opacity: 0.8;
+}
+
+
+/* ==================================================
+   EMPTY
+================================================== */
+
+.empty-row {
+    text-align: center;
+    color: #999;
+    padding: 30px !important;
+}
+
+
+/* ==================================================
+   MODAL
+================================================== */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+
+/* ==================================================
+   MODAL BOX
+================================================== */
+
+.leave-modal {
+    width: 420px;
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+
+/* ==================================================
+   MODAL HEADER
+================================================== */
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    font-size: 16px;
+}
+
+.modal-header p {
+    font-size: 9px;
+    color: #888;
+    margin-top: 3px;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    color: #777;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   FORM
+================================================== */
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 10px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #1A6B72;
+}
+
+
+/* ==================================================
+   MODAL ACTIONS
+================================================== */
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-btn,
+.save-btn {
+    border: none;
+    padding: 9px 15px;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: #eee;
+    color: #555;
+}
+
+.save-btn {
+    background: #1A6B72;
+    color: white;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+        padding: 20px;
+    }
+
+    .profile {
+        display: none;
+    }
+
+    .notification-dropdown {
+        width: 300px;
+    }
+
+    .leave-modal {
+        width: 90%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .topbar {
+        align-items: flex-start;
+    }
+
+    .topbar h1 {
+        font-size: 22px;
+    }
+
+}

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Food Management</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Food CSS -->
+
+    <link rel="stylesheet" href="/css/food.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <h2>Aadhya</h2>
+
+                <span>Mens PG</span>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <nav class="sidebar-menu">
+
+
+                <a href="dashboard.html" class="menu-item">
+
+                    <span class="icon">⌂</span>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <a href="tenant.html" class="menu-item">
+
+                    <span class="icon">👤</span>
+
+                    <span>Tenant Management</span>
+
+                </a>
+
+
+                <a href="room.html" class="menu-item">
+
+                    <span class="icon">🏠</span>
+
+                    <span>Room Management</span>
+
+                </a>
+
+
+                <a href="movement.html" class="menu-item">
+
+                    <span class="icon">↔</span>
+
+                    <span>Movement Tracking</span>
+
+                </a>
+
+
+                <a href="payment.html" class="menu-item">
+
+                    <span class="icon">₹</span>
+
+                    <span>Payment Management</span>
+
+                </a>
+
+
+                <!-- FOOD MANAGEMENT -->
+
+                <a href="food.html" class="menu-item active">
+
+                    <span class="icon">🍽</span>
+
+                    <span>Food Management</span>
+
+                </a>
+
+
+                <a href="leave.html" class="menu-item">
+
+                    <span class="icon">📅</span>
+
+                    <span>Leave Management</span>
+
+                </a>
+
+
+                <a href="accounts.html" class="menu-item" id="accountsMenu">
+
+                    <span class="icon">💰</span>
+
+                    <span>Accounts</span>
+
+                </a>
+
+
+                <a href="notice.html" class="menu-item">
+
+                    <span class="icon">🔔</span>
+
+                    <span>Notices</span>
+
+                </a>
+
+
+                <a href="complaints.html" class="menu-item">
+
+                    <span class="icon">📝</span>
+
+                    <span>Complaints</span>
+
+                </a>
+
+
+                <a href="user.html" class="menu-item" id="usersMenu">
+
+                    <span class="icon">👥</span>
+
+                    <span>User Management</span>
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- LOGOUT -->
+
+            <button class="logout-btn" id="logoutBtn">
+
+                <span class="icon">↪</span>
+
+                <span>Logout</span>
+
+            </button>
+
+
+        </aside>
+
+
+
+        <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- ==================================================
+             TOP BAR
+        ================================================== -->
+
+            <header class="topbar">
+
+
+                <div>
+
+                    <h1>Food Management</h1>
+
+                    <p>
+                        Monitor daily food consumption
+                    </p>
+
+                </div>
+
+
+                <!-- PROFILE -->
+
+                <div class="profile">
+
+
+                    <div class="profile-icon">
+
+                        👤
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="profileUsername">
+                            User
+                        </strong>
+
+                        <small id="profileRole">
+                            ADMIN
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- ==================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+            <section class="summary-cards">
+
+
+                <!-- TOTAL MEALS -->
+
+                <div class="summary-card">
+
+
+                    <div class="summary-icon total-icon">
+
+                        🍽
+
+                    </div>
+
+
+                    <div>
+
+                        <p>Total Meals</p>
+
+                        <h2 id="totalMeals">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+                <!-- TOTAL CONSUMED MEALS -->
+
+                <div class="summary-card">
+
+
+                    <div class="summary-icon consumed-icon">
+
+                        🍴
+
+                    </div>
+
+
+                    <div>
+
+                        <p>Total Consumed Meals</p>
+
+                        <h2 id="totalConsumedMeals">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BREAKFAST -->
+
+                <div class="summary-card">
+
+
+                    <div class="summary-icon breakfast-icon">
+
+                        🌅
+
+                    </div>
+
+
+                    <div>
+
+                        <p>Breakfast</p>
+
+                        <h2 id="breakfastCount">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- LUNCH -->
+
+                <div class="summary-card">
+
+
+                    <div class="summary-icon lunch-icon">
+
+                        ☀️
+
+                    </div>
+
+
+                    <div>
+
+                        <p>Lunch</p>
+
+                        <h2 id="lunchCount">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DINNER -->
+
+                <div class="summary-card">
+
+
+                    <div class="summary-icon dinner-icon">
+
+                        🌙
+
+                    </div>
+
+
+                    <div>
+
+                        <p>Dinner</p>
+
+                        <h2 id="dinnerCount">
+                            0
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================================
+             FOOD CONTENT CARD
+        ================================================== -->
+
+            <section class="food-card">
+
+
+                <!-- HEADER -->
+
+                <div class="food-card-header">
+
+
+                    <div>
+
+                        <h3>Daily Food Consumption</h3>
+
+                        <p>
+                            View tenant meal consumption
+                        </p>
+
+                    </div>
+
+
+                    <!-- DATE -->
+
+                    <div class="date-box">
+
+                        <label for="foodDate">
+                            Date
+                        </label>
+
+                        <input type="date" id="foodDate">
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ==================================================
+                 SEARCH
+            ================================================== -->
+
+                <div class="toolbar">
+
+
+                    <div class="search-box">
+
+
+                        <span>🔍</span>
+
+
+                        <input type="text" id="searchInput" placeholder="Search tenant...">
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ==================================================
+                 FOOD TABLE
+            ================================================== -->
+
+                <div class="table-container">
+
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Tenant Name
+                                </th>
+
+                                <th>
+                                    Room No
+                                </th>
+
+                                <th>
+                                    Breakfast
+                                </th>
+
+                                <th>
+                                    Lunch
+                                </th>
+
+                                <th>
+                                    Dinner
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="foodTableBody">
+
+
+                            <tr>
+
+                                <td colspan="7" class="empty-message">
+
+                                    No food records available
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+    <!-- ==================================================
+     FOOD HISTORY MODAL
+================================================== -->
+
+    <div class="modal-overlay" id="foodHistoryModal">
+
+
+        <div class="history-modal">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="history-modal-header">
+
+
+                <div>
+
+                    <h2 id="historyTenantName">
+                        Tenant Food History
+                    </h2>
+
+                    <p>
+                        View complete food consumption history
+                    </p>
+
+                </div>
+
+
+                <button class="close-modal-btn" id="closeHistoryModal">
+
+                    ×
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+             HISTORY SUMMARY
+        ================================================== -->
+
+            <div class="history-summary">
+
+
+                <div class="history-summary-card">
+
+                    <span>
+                        Total Days
+                    </span>
+
+                    <strong id="historyTotalDays">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="history-summary-card">
+
+                    <span>
+                        Breakfast
+                    </span>
+
+                    <strong id="historyBreakfastCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="history-summary-card">
+
+                    <span>
+                        Lunch
+                    </span>
+
+                    <strong id="historyLunchCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="history-summary-card">
+
+                    <span>
+                        Dinner
+                    </span>
+
+                    <strong id="historyDinnerCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+             HISTORY TABLE
+        ================================================== -->
+
+            <div class="history-table-container">
+
+
+                <table class="history-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Breakfast
+                            </th>
+
+                            <th>
+                                Lunch
+                            </th>
+
+                            <th>
+                                Dinner
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="foodHistoryTableBody">
+
+
+                        <tr>
+
+                            <td colspan="5" class="empty-message">
+
+                                No food history available
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+             MODAL FOOTER
+        ================================================== -->
+
+            <div class="history-modal-footer">
+
+
+                <button class="cancel-btn" id="closeHistoryBtn">
+
+                    Close
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/food.js"></script>
+
+
+</body>
+
+</html>

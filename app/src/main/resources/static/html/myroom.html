@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Room</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="/css/myroom.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+
+            <span>Mens PG</span>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="tenantdashboard.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="mydetails.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+
+                My Details
+
+            </a>
+
+
+            <a href="myroom.html"
+               class="menu-item active">
+
+                <span class="icon">
+                    <i class="fa-solid fa-bed"></i>
+                </span>
+
+                My Room
+
+            </a>
+
+
+            <a href="mymovement.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-right-left"></i>
+                </span>
+
+                My Movements
+
+            </a>
+
+
+            <a href="mypayment.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-money-bill"></i>
+                </span>
+
+                My Payments
+
+            </a>
+
+
+            <a href="myfood.html"
+               class="menu-item" id="myFoodMenu">
+
+                <span class="icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </span>
+
+                My Food
+
+            </a>
+
+
+            <a href="myleave.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </span>
+
+                My Leave
+
+            </a>
+
+
+            <a href="tenantnotice.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </span>
+
+                Notices
+
+            </a>
+
+
+            <a href="mycomplaints.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-message"></i>
+                </span>
+
+                My Complaints
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button class="logout-btn"
+                onclick="logout()">
+
+            <span class="icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </span>
+
+            Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOPBAR
+        ================================================== -->
+
+        <div class="topbar">
+
+
+            <div>
+
+                <h1>My Room</h1>
+
+                <p>
+                    Your current room details
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <!-- NOTIFICATION -->
+
+                <div class="notification-wrapper">
+
+
+                    <button
+                        class="notification-btn"
+                        onclick="toggleNotifications()">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span
+                            class="notification-count"
+                            id="notificationCount">
+                        </span>
+
+                    </button>
+
+
+                    <!-- NOTIFICATION DROPDOWN -->
+
+                    <div
+                        class="notification-dropdown"
+                        id="notificationDropdown">
+
+
+                        <div class="notification-header">
+
+                            <h3>Notifications</h3>
+
+                            <button
+                                onclick="markAllNotificationsRead()">
+
+                                Mark all read
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="notification-list"
+                            id="notificationList">
+
+                            <div class="notification-empty">
+
+                                No notifications
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROFILE -->
+
+                <div class="profile">
+
+
+                    <div class="profile-icon">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="loggedUsername">
+                            Tenant
+                        </strong>
+
+                        <small>
+                            TENANT
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             ROOM OVERVIEW
+        ================================================== -->
+
+        <div class="dashboard-card">
+
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>Room Overview</h3>
+
+                    <p>
+                        Your current room information
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="room-overview">
+
+
+                <!-- ROOM NUMBER -->
+
+                <div class="overview-item">
+
+
+                    <div class="overview-icon room-icon">
+
+                        <i class="fa-solid fa-door-open"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Room Number</span>
+
+                        <strong id="overviewRoomNumber">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ROOM TYPE -->
+
+                <div class="overview-item">
+
+
+                    <div class="overview-icon type-icon">
+
+                        <i class="fa-solid fa-bed"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Room Type</span>
+
+                        <strong id="overviewRoomType">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="overview-item">
+
+
+                    <div class="overview-icon status-icon">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Status</span>
+
+                        <strong
+                            class="room-status"
+                            id="overviewStatus">
+
+                            -
+
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             ROOM DETAILS
+        ================================================== -->
+
+        <div class="dashboard-card">
+
+
+            <div class="card-header">
+
+                <div>
+
+                    <h3>Room Details</h3>
+
+                    <p>
+                        Your assigned room information
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="room-details">
+
+
+                <!-- ROOM NUMBER -->
+
+                <div class="detail-item">
+
+                    <span>Room Number</span>
+
+                    <strong id="roomNumber">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- ROOM TYPE -->
+
+                <div class="detail-item">
+
+                    <span>Room Type</span>
+
+                    <strong id="roomType">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- FOOD -->
+
+                <div class="detail-item">
+
+                    <span>Food</span>
+
+                    <strong id="foodType">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- MONTHLY RENT -->
+
+                <div class="detail-item">
+
+                    <span>Monthly Rent</span>
+
+                    <strong id="monthlyRent">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <!-- CHECK-IN DATE -->
+
+                <div class="detail-item">
+
+                    <span>Check-in Date</span>
+
+                    <strong id="checkInDate">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="detail-item">
+
+                    <span>Status</span>
+
+                    <strong
+                        class="room-status"
+                        id="roomStatus">
+
+                        -
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- JS -->
+ <script src="/js/auth.js"></script>
+
+
+<script src="/js/myroom.js"></script>
+
+
+</body>
+
+</html>
+

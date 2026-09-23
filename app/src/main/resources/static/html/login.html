@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Aadhya Mens PG - Login</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Login CSS -->
+
+    <link rel="stylesheet"
+          href="/css/login.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         LOGIN PAGE
+    =========================================== -->
+
+    <div class="login-page">
+
+
+        <!-- ======================================
+             LOGIN CARD
+        ======================================= -->
+
+        <div class="login-card">
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <h1>Aadhya</h1>
+
+                <p>Mens PG</p>
+
+            </div>
+
+
+            <!-- HEADING -->
+
+            <div class="login-heading">
+
+                <h2>Welcome Back</h2>
+
+                <span>
+                    Sign in to continue
+                </span>
+
+            </div>
+
+
+            <!-- ==================================
+                 LOGIN FORM
+            =================================== -->
+
+            <form id="loginForm">
+
+
+                <!-- USERNAME -->
+
+                <div class="input-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                    >
+
+                </div>
+
+
+                <!-- FORGOT PASSWORD -->
+
+                <div class="forgot-password">
+
+                    <a href="#" id="forgotPasswordLink">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-btn">
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+            <!-- LOGIN MESSAGE -->
+
+            <p id="loginMessage"
+               class="login-message">
+            </p>
+
+
+            <!-- FOOTER -->
+
+            <div class="login-footer">
+
+                Aadhya Mens PG Management System
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         FORGOT PASSWORD MODAL
+    =========================================== -->
+
+    <div class="modal-overlay"
+         id="forgotPasswordModal">
+
+
+        <div class="forgot-modal">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>Reset Password</h2>
+
+                    <p>
+                        Create a new password for your account
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-modal"
+                    id="closeForgotModal">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 RESET PASSWORD FORM
+            =================================== -->
+
+            <form id="resetPasswordForm">
+
+
+                <!-- USERNAME -->
+
+                <div class="input-group">
+
+                    <label for="resetUsername">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="resetUsername"
+                        placeholder="Enter your username"
+                    >
+
+                </div>
+
+
+                <!-- NEW PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="newPassword">
+                        New Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        placeholder="Enter new password"
+                    >
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm new password"
+                    >
+
+                </div>
+
+
+                <!-- RESET BUTTON -->
+
+                <button
+                    type="submit"
+                    class="reset-btn">
+
+                    Reset Password
+
+                </button>
+
+
+                <!-- RESET MESSAGE -->
+
+                <p id="resetMessage"
+                   class="reset-message">
+                </p>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         LOGIN JS
+    =========================================== -->
+
+    <script src="/js/login.js"></script>
+
+
+</body>
+
+</html>

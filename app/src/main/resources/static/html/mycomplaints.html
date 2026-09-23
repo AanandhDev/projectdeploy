@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Complaints</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="/css/mycomplaints.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+
+            <span>Mens PG</span>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="tenantdashboard.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="mydetails.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+
+                My Details
+
+            </a>
+
+
+            <a href="myroom.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-bed"></i>
+                </span>
+
+                My Room
+
+            </a>
+
+
+            <a href="mymovement.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-right-left"></i>
+                </span>
+
+                My Movements
+
+            </a>
+
+
+            <a href="mypayment.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-money-bill"></i>
+                </span>
+
+                My Payments
+
+            </a>
+
+
+            <a href="myfood.html"
+               class="menu-item" id="myFoodMenu">
+
+                <span class="icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </span>
+
+                My Food
+
+            </a>
+
+
+            <a href="myleave.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </span>
+
+                My Leave
+
+            </a>
+
+
+            <a href="tenantnotice.html"
+               class="menu-item">
+
+                <span class="icon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </span>
+
+                Notices
+
+            </a>
+
+
+            <a href="mycomplaints.html"
+               class="menu-item active">
+
+                <span class="icon">
+                    <i class="fa-solid fa-message"></i>
+                </span>
+
+                My Complaints
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button class="logout-btn"
+                onclick="logout()">
+
+            <span class="icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </span>
+
+            Logout
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOPBAR
+        ================================================== -->
+
+        <div class="topbar">
+
+
+            <div>
+
+                <h1>My Complaints</h1>
+
+                <p>
+                    Raise and track your complaints
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <!-- NOTIFICATION -->
+
+                <div class="notification-wrapper">
+
+
+                    <button class="notification-btn"
+                            onclick="toggleNotifications()">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span id="notificationCount"
+                              class="notification-count">
+                        </span>
+
+                    </button>
+
+
+                    <div id="notificationDropdown"
+                         class="notification-dropdown">
+
+
+                        <div class="notification-header">
+
+                            <h3>Notifications</h3>
+
+                            <button onclick="markAllNotificationsRead()">
+                                Mark all read
+                            </button>
+
+                        </div>
+
+
+                        <div id="notificationList"
+                             class="notification-list">
+
+                            <div class="notification-empty">
+                                No notifications
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROFILE -->
+
+                <div class="profile">
+
+
+                    <div class="profile-icon">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="loggedUsername">
+                            Tenant
+                        </strong>
+
+                        <small>
+                            TENANT
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <div class="summary-cards">
+
+
+            <!-- TOTAL -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon total-icon">
+
+                    <i class="fa-solid fa-message"></i>
+
+                </div>
+
+
+                <div>
+
+                    <p>Total Complaints</p>
+
+                    <h2 id="totalComplaints">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- OPEN -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon open-icon">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                </div>
+
+
+                <div>
+
+                    <p>Open</p>
+
+                    <h2 id="openComplaints">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- IN PROGRESS -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon progress-icon">
+
+                    <i class="fa-solid fa-spinner"></i>
+
+                </div>
+
+
+                <div>
+
+                    <p>In Progress</p>
+
+                    <h2 id="progressComplaints">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- RESOLVED -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon resolved-icon">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+
+                <div>
+
+                    <p>Resolved</p>
+
+                    <h2 id="resolvedComplaints">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             COMPLAINT SECTION
+        ================================================== -->
+
+        <section class="complaint-card">
+
+
+            <!-- HEADER -->
+
+            <div class="complaint-card-header">
+
+
+                <div>
+
+                    <h3>Complaint History</h3>
+
+                    <p>
+                        View and track your submitted complaints
+                    </p>
+
+                </div>
+
+
+                <button class="raise-complaint-btn"
+                        onclick="openComplaintModal()">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Raise Complaint
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TOOLBAR
+            ================================================== -->
+
+            <div class="toolbar">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text"
+                           id="searchComplaint"
+                           placeholder="Search complaint...">
+
+                </div>
+
+
+                <!-- STATUS FILTER -->
+
+                <select id="statusFilter"
+                        class="filter-select">
+
+                    <option value="ALL">
+                        All Status
+                    </option>
+
+                    <option value="OPEN">
+                        Open
+                    </option>
+
+                    <option value="IN_PROGRESS">
+                        In Progress
+                    </option>
+
+                    <!-- WAITING FOR CONFIRMATION -->
+
+                    <option value="WAITING_FOR_CONFIRMATION">
+                        Waiting for Confirmation
+                    </option>
+
+                    <option value="RESOLVED">
+                        Resolved
+                    </option>
+
+                    <option value="CANCELLED">
+                        Cancelled
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Complaint
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Submitted Date
+                        </th>
+
+                        <th>
+                            Last Updated
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="complaintTableBody">
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     RAISE COMPLAINT MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="complaintModal">
+
+
+    <div class="modal">
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>Raise Complaint</h2>
+
+                <p>
+                    Submit your complaint to PG management
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    onclick="closeComplaintModal()">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form id="complaintForm">
+
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+
+
+                <label>
+                    Complaint Category
+                    <span>*</span>
+                </label>
+
+
+                <select id="complaintCategory"
+                        required>
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="Maintenance">
+                        Maintenance
+                    </option>
+
+                    <option value="Electrical">
+                        Electrical
+                    </option>
+
+                    <option value="Water">
+                        Water
+                    </option>
+
+                    <option value="Food">
+                        Food
+                    </option>
+
+                    <option value="Room">
+                        Room
+                    </option>
+
+                    <option value="Cleaning">
+                        Cleaning
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <div class="form-group">
+
+
+                <label>
+                    Complaint Title
+                    <span>*</span>
+                </label>
+
+
+                <input type="text"
+                       id="complaintTitle"
+                       placeholder="Example: Fan not working"
+                       required>
+
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+
+                <label>
+                    Description
+                    <span>*</span>
+                </label>
+
+
+                <textarea id="complaintDescription"
+                          rows="5"
+                          placeholder="Describe your complaint..."
+                          required></textarea>
+
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="modal-actions">
+
+
+                <button type="button"
+                        class="cancel-btn"
+                        onclick="closeComplaintModal()">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="submit-btn">
+
+                    Submit Complaint
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     VIEW COMPLAINT MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="viewComplaintModal">
+
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>Complaint Details</h2>
+
+                <p>
+                    View complete complaint information
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    onclick="closeViewModal()">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+        <div id="viewComplaintContent"
+             class="view-content">
+
+        </div>
+
+
+        <div class="modal-actions">
+
+
+            <button type="button"
+                    class="cancel-btn"
+                    onclick="closeViewModal()">
+
+                Close
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     CANCEL COMPLAINT MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="cancelComplaintModal">
+
+
+    <div class="modal small-modal">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>Cancel Complaint</h2>
+
+                <p>
+                    Cancel your open complaint
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    onclick="closeCancelModal()">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <div class="cancel-warning">
+
+
+            <i class="fa-solid fa-circle-exclamation"></i>
+
+
+            <p>
+                Are you sure you want to cancel this complaint?
+                This complaint will remain in your history
+                with cancelled status.
+            </p>
+
+
+        </div>
+
+
+
+        <div class="modal-actions">
+
+
+            <button type="button"
+                    class="cancel-btn"
+                    onclick="closeCancelModal()">
+
+                Keep Complaint
+
+            </button>
+
+
+            <button type="button"
+                    class="danger-btn"
+                    onclick="confirmCancelComplaint()">
+
+                Cancel Complaint
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- JS -->
+
+<script src="/js/mycomplaints.js"></script>
+
+
+</body>
+
+</html>

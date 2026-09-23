@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Leave Management</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Leave CSS -->
+
+    <link rel="stylesheet"
+          href="/css/leave.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+
+            <span>Mens PG</span>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="dashboard.html"
+               class="menu-item">
+
+                <span class="icon">⌂</span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="tenant.html"
+               class="menu-item">
+
+                <span class="icon">👤</span>
+
+                <span>Tenant Management</span>
+
+            </a>
+
+
+            <a href="room.html"
+               class="menu-item">
+
+                <span class="icon">🏠</span>
+
+                <span>Room Management</span>
+
+            </a>
+
+
+            <a href="movement.html"
+               class="menu-item">
+
+                <span class="icon">↔</span>
+
+                <span>Movement Tracking</span>
+
+            </a>
+
+
+            <a href="payment.html"
+               class="menu-item">
+
+                <span class="icon">₹</span>
+
+                <span>Payment Management</span>
+
+            </a>
+
+
+            <a href="food.html"
+               class="menu-item">
+
+                <span class="icon">🍽</span>
+
+                <span>Food Management</span>
+
+            </a>
+
+
+            <a href="leave.html"
+               class="menu-item active">
+
+                <span class="icon">📅</span>
+
+                <span>Leave Management</span>
+
+            </a>
+
+
+            <a href="accounts.html"
+               class="menu-item" id="accountsMenu">
+
+                <span class="icon">💰</span>
+
+                <span>Accounts</span>
+
+            </a>
+
+
+            <a href="notice.html"
+               class="menu-item">
+
+                <span class="icon">🔔</span>
+
+                <span>Notices</span>
+
+            </a>
+
+
+            <a href="complaints.html"
+               class="menu-item">
+
+                <span class="icon">📝</span>
+
+                <span>Complaints</span>
+
+            </a>
+
+
+            <a href="user.html"
+               class="menu-item" id="usersMenu">
+
+                <span class="icon">👥</span>
+
+                <span>User Management</span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button class="logout-btn"
+                id="logoutBtn">
+
+            <span class="icon">↪</span>
+
+            <span>Logout</span>
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1>Leave Management</h1>
+
+                <p>
+                    View and monitor tenant leave records
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile">
+
+
+                <div class="profile-icon">
+
+                    👤
+
+                </div>
+
+
+                <div>
+
+                    <strong id="profileUsername">
+                        User
+                    </strong>
+
+                    <small id="profileRole">
+                        ADMIN
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ==================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <section class="summary-cards">
+
+
+            <!-- TOTAL LEAVES -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon total-icon">
+
+                    📅
+
+                </div>
+
+
+                <div>
+
+                    <p>Total Leaves</p>
+
+                    <h2 id="totalLeaves">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- UPCOMING -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon upcoming-icon">
+
+                    🕐
+
+                </div>
+
+
+                <div>
+
+                    <p>Upcoming</p>
+
+                    <h2 id="upcomingLeaves">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ON LEAVE -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon onleave-icon">
+
+                    🏖
+
+                </div>
+
+
+                <div>
+
+                    <p>On Leave</p>
+
+                    <h2 id="onLeave">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- COMPLETED -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon completed-icon">
+
+                    ✓
+
+                </div>
+
+
+                <div>
+
+                    <p>Completed</p>
+
+                    <h2 id="completedLeaves">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             LEAVE CONTENT CARD
+        ================================================== -->
+
+        <section class="leave-card">
+
+
+            <!-- HEADER -->
+
+            <div class="leave-card-header">
+
+
+                <div>
+
+                    <h3>Leave Records</h3>
+
+                    <p>
+                        View tenant leave history and current leaves
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 FILTER TOOLBAR
+            ================================================== -->
+
+            <div class="toolbar">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <span>🔍</span>
+
+                    <input type="text"
+                           id="searchInput"
+                           placeholder="Search tenant...">
+
+                </div>
+
+
+
+                <!-- STATUS FILTER -->
+
+                <select id="statusFilter"
+                        class="status-filter">
+
+                    <option value="ALL">
+                        All Status
+                    </option>
+
+                    <option value="UPCOMING">
+                        Upcoming
+                    </option>
+
+                    <option value="ON LEAVE">
+                        On Leave
+                    </option>
+
+                    <option value="COMPLETED">
+                        Completed
+                    </option>
+
+                </select>
+
+
+
+                <!-- FROM DATE -->
+
+                <div class="date-filter">
+
+                    <label>
+                        From
+                    </label>
+
+                    <input type="date"
+                           id="fromDate">
+
+                </div>
+
+
+
+                <!-- TO DATE -->
+
+                <div class="date-filter">
+
+                    <label>
+                        To
+                    </label>
+
+                    <input type="date"
+                           id="toDate">
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Tenant Name
+                        </th>
+
+                        <th>
+                            Room No
+                        </th>
+
+                        <th>
+                            Phone Number
+                        </th>
+
+                        <th>
+                            From Date
+                        </th>
+
+                        <th>
+                            Return / To Date
+                        </th>
+
+                        <th>
+                            Reason
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="leaveTableBody">
+
+
+                    <tr>
+
+                        <td colspan="7"
+                            class="empty-message">
+
+                            No leave records
+
+                        </td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 PAGINATION
+            ================================================== -->
+
+            <div class="pagination">
+
+
+                <button id="previousBtn">
+
+                    ← Previous
+
+                </button>
+
+
+                <div id="pageNumbers"
+                     class="page-numbers">
+                </div>
+
+
+                <button id="nextBtn">
+
+                    Next →
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="/js/auth.js"></script>
+<script src="/js/leave.js"></script>
+
+
+</body>
+
+</html>

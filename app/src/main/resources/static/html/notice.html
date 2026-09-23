@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Notice Management</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- Notice CSS -->
+
+    <link rel="stylesheet"
+          href="/css/notice.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+
+            <span>Mens PG</span>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="dashboard.html"
+               class="menu-item">
+
+                <span class="icon">⌂</span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="tenant.html"
+               class="menu-item">
+
+                <span class="icon">👤</span>
+
+                <span>Tenant Management</span>
+
+            </a>
+
+
+            <a href="room.html"
+               class="menu-item">
+
+                <span class="icon">🏠</span>
+
+                <span>Room Management</span>
+
+            </a>
+
+
+            <a href="movement.html"
+               class="menu-item">
+
+                <span class="icon">↔</span>
+
+                <span>Movement Tracking</span>
+
+            </a>
+
+
+            <a href="payment.html"
+               class="menu-item">
+
+                <span class="icon">₹</span>
+
+                <span>Payment Management</span>
+
+            </a>
+
+
+            <a href="food.html"
+               class="menu-item">
+
+                <span class="icon">🍽</span>
+
+                <span>Food Management</span>
+
+            </a>
+
+
+            <a href="leave.html"
+               class="menu-item">
+
+                <span class="icon">📅</span>
+
+                <span>Leave Management</span>
+
+            </a>
+
+
+            <a href="accounts.html"
+               class="menu-item" id="accountsMenu">
+
+                <span class="icon">💰</span>
+
+                <span>Accounts</span>
+
+            </a>
+
+
+            <a href="notice.html"
+               class="menu-item active">
+
+                <span class="icon">🔔</span>
+
+                <span>Notices</span>
+
+            </a>
+
+
+            <a href="complaints.html"
+               class="menu-item">
+
+                <span class="icon">📝</span>
+
+                <span>Complaints</span>
+
+            </a>
+
+
+            <a href="user.html"
+               class="menu-item" id="usersMenu">
+
+                <span class="icon">👥</span>
+
+                <span>User Management</span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button class="logout-btn"
+                id="logoutBtn">
+
+            <span class="icon">↪</span>
+
+            <span>Logout</span>
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1>Notice Management</h1>
+
+                <p>
+                    Create and manage important PG notices
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile">
+
+
+                <div class="profile-icon">
+
+                    👤
+
+                </div>
+
+
+                <div>
+
+                    <strong id="profileUsername">
+                        Admin
+                    </strong>
+
+                    <small>
+                        ADMIN
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ==================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <section class="summary-cards">
+
+
+            <!-- TOTAL -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon total-icon">
+
+                    🔔
+
+                </div>
+
+                <div>
+
+                    <p>Total Notices</p>
+
+                    <h2 id="totalNotice">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIVE -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon active-icon">
+
+                    ✓
+
+                </div>
+
+                <div>
+
+                    <p>Active Notices</p>
+
+                    <h2 id="activeNotice">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPLETED -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon completed-icon">
+
+                    ✓
+
+                </div>
+
+                <div>
+
+                    <p>Completed Notices</p>
+
+                    <h2 id="completedNotice">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             NOTICE CARD
+        ================================================== -->
+
+        <section class="notice-card">
+
+
+            <!-- HEADER -->
+
+            <div class="notice-card-header">
+
+
+                <div>
+
+                    <h3>Notice List</h3>
+
+                    <p>
+                        View and manage all notices
+                    </p>
+
+                </div>
+
+
+                <button class="add-notice-btn"
+                        id="openAddNoticeBtn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Notice
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TOOLBAR
+            ================================================== -->
+
+            <div class="toolbar">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text"
+                           id="searchNotice"
+                           placeholder="Search notice...">
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <select id="statusFilter"
+                        class="filter-select">
+
+                    <option value="ALL">
+                        All Status
+                    </option>
+
+                    <option value="UPCOMING">
+                        Upcoming
+                    </option>
+
+                    <option value="ACTIVE">
+                        Active
+                    </option>
+
+                    <option value="COMPLETED">
+                        Completed
+                    </option>
+
+                    <option value="CANCELLED">
+                        Cancelled
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Notice
+                        </th>
+
+                        <th>
+                            Type
+                        </th>
+
+                        <th>
+                            Posted Date
+                        </th>
+
+                        <th>
+                            Effective Date
+                        </th>
+
+                        <th>
+                            Time
+                        </th>
+
+                        <th>
+                            Feedback
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="noticeTableBody">
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     ADD / EDIT NOTICE MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="noticeModal">
+
+
+    <div class="modal">
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2 id="modalTitle">
+                    Add New Notice
+                </h2>
+
+                <p>
+                    Create and publish a notice for tenants
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    id="closeNoticeModal">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form id="noticeForm">
+
+
+            <!-- NOTICE TYPE -->
+
+            <div class="form-group">
+
+                <label>
+                    Notice Type <span>*</span>
+                </label>
+
+
+                <select id="noticeType"
+                        required>
+
+                    <option value="">
+                        Select Notice Type
+                    </option>
+
+                    <option value="WATER">
+                        Water Supply
+                    </option>
+
+                    <option value="POWER">
+                        Power Shutdown
+                    </option>
+
+                    <option value="MAINTENANCE">
+                        Maintenance
+                    </option>
+
+                    <option value="RENT_UPDATE">
+                        Rent Update
+                    </option>
+
+                    <option value="FOOD_FEE_UPDATE">
+                        Food Fee Update
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <div class="form-group">
+
+                <label>
+                    Notice Title <span>*</span>
+                </label>
+
+
+                <input type="text"
+                       id="noticeTitle"
+                       placeholder="Enter notice title"
+                       required>
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label>
+                    Description <span>*</span>
+                </label>
+
+
+                <textarea id="noticeDescription"
+                          rows="3"
+                          placeholder="Enter notice details..."
+                          required></textarea>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 DYNAMIC FIELDS
+            ================================================== -->
+
+            <div id="dynamicFields">
+
+
+                <!-- WATER / POWER / MAINTENANCE -->
+
+                <div id="scheduleFields"
+                     class="dynamic-section hidden">
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Valid Date <span>*</span>
+                            </label>
+
+                            <input type="date"
+                                   id="validDate">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                From Time <span>*</span>
+                            </label>
+
+                            <input type="time"
+                                   id="fromTime">
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            To Time <span>*</span>
+                        </label>
+
+                        <input type="time"
+                               id="toTime">
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- RENT UPDATE -->
+
+                <div id="rentFields"
+                     class="dynamic-section hidden">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Increase Amount <span>*</span>
+                        </label>
+
+
+                        <div class="amount-input">
+
+                            <span>₹</span>
+
+                            <input type="number"
+                                   id="rentIncrease"
+                                   min="1"
+                                   placeholder="500">
+
+                        </div>
+
+
+                        <small>
+                            This amount will be added to the rent
+                            for all applicable active tenants.
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Effective From <span>*</span>
+                        </label>
+
+                        <input type="date"
+                               id="rentEffectiveDate">
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- FOOD FEE UPDATE -->
+
+                <div id="foodFields"
+                     class="dynamic-section hidden">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Increase Amount <span>*</span>
+                        </label>
+
+
+                        <div class="amount-input">
+
+                            <span>₹</span>
+
+                            <input type="number"
+                                   id="foodIncrease"
+                                   min="1"
+                                   placeholder="300">
+
+                        </div>
+
+
+                        <small>
+                            This increase applies only to
+                            active With Food tenants.
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Effective From <span>*</span>
+                        </label>
+
+                        <input type="date"
+                               id="foodEffectiveDate">
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- FEEDBACK -->
+
+            <div class="feedback-option">
+
+
+                <label class="checkbox-label">
+
+
+                    <input type="checkbox"
+                           id="requireFeedback">
+
+
+                    <span>
+
+                        Require Tenant Feedback
+
+                    </span>
+
+
+                </label>
+
+
+                <small>
+                    Tenants will be able to submit feedback
+                    for this notice.
+                </small>
+
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="modal-actions">
+
+
+                <button type="button"
+                        class="cancel-btn"
+                        id="cancelNoticeBtn">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="save-btn"
+                        id="saveNoticeBtn">
+
+                    Publish Notice
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     VIEW NOTICE MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="viewNoticeModal">
+
+
+    <div class="modal view-modal">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>
+                    Notice Details
+                </h2>
+
+                <p>
+                    View complete notice information
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    id="closeViewModal">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <div id="viewNoticeContent"
+             class="view-content">
+
+        </div>
+
+
+        <div class="modal-actions">
+
+
+            <button type="button"
+                    class="cancel-btn"
+                    id="viewCloseBtn">
+
+                Close
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     TENANT FEEDBACK MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="feedbackModal">
+
+
+    <div class="modal feedback-modal">
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>
+                    Tenant Feedback
+                </h2>
+
+                <p id="feedbackNoticeTitle">
+                    Feedback received from tenants
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    id="closeFeedbackModal">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- FEEDBACK CONTENT -->
+
+        <div id="feedbackContent"
+             class="feedback-content">
+
+            <!-- Feedback will be loaded here -->
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="modal-actions">
+
+
+            <button type="button"
+                    class="cancel-btn"
+                    id="feedbackCloseBtn">
+
+                Close
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     CANCEL NOTICE MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="cancelNoticeModal">
+
+
+    <div class="modal small-modal">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>
+                    Cancel Notice
+                </h2>
+
+                <p>
+                    This notice will remain in history.
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    id="closeCancelModal">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+        <div class="cancel-warning">
+
+            <i class="fa-solid fa-circle-exclamation"></i>
+
+            <p>
+                Are you sure you want to cancel this notice?
+                It will no longer appear as an active notice
+                to tenants.
+            </p>
+
+        </div>
+
+
+        <div class="form-group">
+
+
+            <label>
+                Reason <span class="optional">(Optional)</span>
+            </label>
+
+
+            <textarea id="cancelReason"
+                      rows="3"
+                      placeholder="Example: Notice created by mistake..."></textarea>
+
+
+        </div>
+
+
+        <div class="modal-actions">
+
+
+            <button type="button"
+                    class="cancel-btn"
+                    id="keepNoticeBtn">
+
+                Keep Notice
+
+            </button>
+
+
+            <button type="button"
+                    class="danger-btn"
+                    id="confirmCancelBtn">
+
+                Cancel Notice
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="/js/auth.js"></script>
+<script src="/js/notice.js"></script>
+
+
+</body>
+
+</html>

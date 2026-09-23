@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Movement Tracking</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Movement CSS -->
+
+    <link rel="stylesheet"
+          href="/css/movement.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+
+            <span>Mens PG</span>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="dashboard.html"
+               class="menu-item">
+
+                <span class="icon">⌂</span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="tenant.html"
+               class="menu-item">
+
+                <span class="icon">👤</span>
+
+                <span>Tenant Management</span>
+
+            </a>
+
+
+            <a href="room.html"
+               class="menu-item">
+
+                <span class="icon">🏠</span>
+
+                <span>Room Management</span>
+
+            </a>
+
+
+            <a href="movement.html"
+               class="menu-item active">
+
+                <span class="icon">↔</span>
+
+                <span>Movement Tracking</span>
+
+            </a>
+
+
+            <a href="payment.html"
+               class="menu-item">
+
+                <span class="icon">₹</span>
+
+                <span>Payment Management</span>
+
+            </a>
+
+
+            <a href="food.html"
+               class="menu-item">
+
+                <span class="icon">🍽</span>
+
+                <span>Food Management</span>
+
+            </a>
+
+
+            <a href="leave.html"
+               class="menu-item">
+
+                <span class="icon">📅</span>
+
+                <span>Leave Management</span>
+
+            </a>
+
+
+            <a href="accounts.html"
+               class="menu-item" id="accountsMenu">
+
+                <span class="icon">💰</span>
+
+                <span>Accounts</span>
+
+            </a>
+
+
+            <a href="notice.html"
+               class="menu-item">
+
+                <span class="icon">🔔</span>
+
+                <span>Notices</span>
+
+            </a>
+
+
+            <a href="complaints.html"
+               class="menu-item">
+
+                <span class="icon">📝</span>
+
+                <span>Complaints</span>
+
+            </a>
+
+
+            <a href="user.html"
+               class="menu-item" id="usersMenu">
+
+                <span class="icon">👥</span>
+
+                <span>User Management</span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button class="logout-btn"
+                id="logoutBtn">
+
+            <span class="icon">↪</span>
+
+            <span>Logout</span>
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1>Movement Tracking</h1>
+
+                <p>
+                    Track tenant entry and exit movements
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile">
+
+
+                <div class="profile-icon">
+
+                    👤
+
+                </div>
+
+
+                <div>
+
+                    <strong id="profileUsername">
+                        User
+                    </strong>
+
+                    <small id="profileRole">
+                        ADMIN
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ==================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <section class="summary-cards">
+
+
+            <!-- TOTAL TENANTS -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon total-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <p>Total Tenants</p>
+
+                    <h2 id="totalTenants">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- IN COUNT -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon in-icon">
+                    ↗
+                </div>
+
+                <div>
+
+                    <p>Currently In</p>
+
+                    <h2 id="inCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OUT COUNT -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon out-icon">
+                    ↙
+                </div>
+
+                <div>
+
+                    <p>Currently Out</p>
+
+                    <h2 id="outCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             MOVEMENT CARD
+        ================================================== -->
+
+        <section class="movement-card">
+
+
+            <!-- HEADER -->
+
+            <div class="movement-card-header">
+
+
+                <div>
+
+                    <h3>Tenant Movements</h3>
+
+                    <p>
+                        Monitor current tenant entry and exit status
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- SEARCH + FILTER -->
+
+            <div class="toolbar">
+
+
+                <div class="search-box">
+
+                    <span>🔍</span>
+
+                    <input type="text"
+                           id="searchInput"
+                           placeholder="Search tenant...">
+
+                </div>
+
+
+                <select id="statusFilter"
+                        class="status-filter">
+
+                    <option value="ALL">
+                        All Status
+                    </option>
+
+                    <option value="IN">
+                        In
+                    </option>
+
+                    <option value="OUT">
+                        Out
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Tenant Name
+                        </th>
+
+                        <th>
+                            Room No
+                        </th>
+
+                        <th>
+                            Phone No
+                        </th>
+
+                         <th>
+                            Date & Time
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="movementTableBody">
+
+
+                    <!-- Backend data later -->
+
+                    <tr>
+
+                        <td colspan="6"
+                            class="empty-message">
+
+                            No movement records
+
+                        </td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     MOVEMENT HISTORY MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="historyModal">
+
+
+    <div class="history-modal">
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>Movement History</h2>
+
+                <p id="historyTenantName">
+                    Tenant movement records
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    id="closeHistoryBtn">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- TENANT INFO -->
+
+        <div class="history-info">
+
+
+            <div>
+
+                <span>Tenant</span>
+
+                <strong id="historyTenant">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>Room</span>
+
+                <strong id="historyRoom">
+                    -
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- HISTORY TABLE -->
+
+        <div class="history-table-container">
+
+
+            <table>
+
+
+                <thead>
+
+                <tr>
+
+                    <th>
+                        Date & Time
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="historyTableBody">
+
+
+                <tr>
+
+                    <td colspan="2"
+                        class="empty-message">
+
+                        No movement history
+
+                    </td>
+
+                </tr>
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+        <!-- CLOSE -->
+
+        <div class="history-actions">
+
+            <button class="cancel-btn"
+                    id="historyCloseButton">
+
+                Close
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="/js/auth.js"></script>
+<script src="/js/movement.js"></script>
+
+
+</body>
+
+</html>

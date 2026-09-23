@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Room Management</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Room CSS -->
+
+    <link rel="stylesheet"
+          href="/css/room.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <h2>Aadhya</h2>
+
+            <span>Mens PG</span>
+
+        </div>
+
+
+
+        <!-- MENU -->
+
+        <nav class="sidebar-menu">
+
+
+            <a href="dashboard.html"
+               class="menu-item">
+
+                <span class="icon">⌂</span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="tenant.html"
+               class="menu-item">
+
+                <span class="icon">👤</span>
+
+                <span>Tenant Management</span>
+
+            </a>
+
+
+            <a href="room.html"
+               class="menu-item active">
+
+                <span class="icon">🏠</span>
+
+                <span>Room Management</span>
+
+            </a>
+
+
+            <a href="movement.html"
+               class="menu-item">
+
+                <span class="icon">↔</span>
+
+                <span>Movement Tracking</span>
+
+            </a>
+
+
+            <a href="payment.html"
+               class="menu-item">
+
+                <span class="icon">₹</span>
+
+                <span>Payment Management</span>
+
+            </a>
+
+
+            <a href="food.html"
+               class="menu-item">
+
+                <span class="icon">🍽</span>
+
+                <span>Food Management</span>
+
+            </a>
+
+
+            <a href="leave.html"
+               class="menu-item">
+
+                <span class="icon">📅</span>
+
+                <span>Leave Management</span>
+
+            </a>
+
+
+            <a href="accounts.html"
+               class="menu-item" id="accountsMenu">
+
+                <span class="icon">💰</span>
+
+                <span>Accounts</span>
+
+            </a>
+
+
+            <a href="notice.html"
+               class="menu-item">
+
+                <span class="icon">🔔</span>
+
+                <span>Notices</span>
+
+            </a>
+
+
+            <a href="complaints.html"
+               class="menu-item">
+
+                <span class="icon">📝</span>
+
+                <span>Complaints</span>
+
+            </a>
+
+
+            <a href="user.html"
+               class="menu-item" id="usersMenu">
+
+                <span class="icon">👥</span>
+
+                <span>User Management</span>
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- LOGOUT -->
+
+        <button class="logout-btn"
+                id="logoutBtn">
+
+            <span class="icon">↪</span>
+
+            <span>Logout</span>
+
+        </button>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h1>Room Management</h1>
+
+                <p>
+                    Manage rooms and room availability
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile">
+
+
+                <div class="profile-icon">
+
+                    👤
+
+                </div>
+
+
+                <div>
+
+                    <strong id="profileUsername">
+                        User
+                    </strong>
+
+                    <small id="profileRole">
+                        ADMIN
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ==================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <section class="summary-cards">
+
+
+            <!-- TOTAL ROOMS -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon total-icon">
+
+                    🏠
+
+                </div>
+
+
+                <div>
+
+                    <p>Total Rooms</p>
+
+                    <h2 id="totalRooms">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- AVAILABLE ROOMS -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon available-icon">
+
+                    🛏
+
+                </div>
+
+
+                <div>
+
+                    <p>Available Rooms</p>
+
+                    <h2 id="availableRooms">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- OCCUPIED ROOMS -->
+
+            <div class="summary-card">
+
+
+                <div class="summary-icon occupied-icon">
+
+                    👥
+
+                </div>
+
+
+                <div>
+
+                    <p>Occupied Rooms</p>
+
+                    <h2 id="occupiedRooms">
+                        0
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ROOM CONTENT CARD
+        ================================================== -->
+
+        <section class="room-card">
+
+
+            <!-- HEADER -->
+
+            <div class="room-card-header">
+
+
+                <div>
+
+                    <h3>Room List</h3>
+
+                    <p>
+                        View and manage all rooms
+                    </p>
+
+                </div>
+
+
+                <button class="add-room-btn"
+                        id="openAddRoomBtn">
+
+                    + Add Room
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 SEARCH + FILTER
+            ================================================== -->
+
+            <div class="toolbar">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <span>🔍</span>
+
+                    <input type="text"
+                           id="searchInput"
+                           placeholder="Search room number...">
+
+                </div>
+
+
+
+                <!-- STATUS FILTER -->
+
+                <select id="statusFilter"
+                        class="status-filter">
+
+                    <option value="ALL">
+                        All Status
+                    </option>
+
+                    <option value="AVAILABLE">
+                        Available
+                    </option>
+
+                    <option value="OCCUPIED">
+                        Occupied
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 ROOM TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+
+                <table>
+
+
+                    <thead>
+
+                    <tr>
+
+                        <th>
+                            Room No
+                        </th>
+
+                        <th>
+                            Room Type
+                        </th>
+
+                        <th>
+                            Rent
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th id="roomActionHeader">
+                            Actions
+                        </th>
+
+                    </tr>
+
+                    </thead>
+
+
+                    <tbody id="roomTableBody">
+
+
+                    <tr>
+
+                        <td colspan="5"
+                            class="empty-message">
+
+                            No room records
+
+                        </td>
+
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     ADD ROOM MODAL
+================================================== -->
+
+<div class="modal-overlay"
+     id="addRoomModal">
+
+
+    <div class="modal">
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <h2>Add New Room</h2>
+
+                <p>
+                    Add room details and room type
+                </p>
+
+            </div>
+
+
+            <button class="close-modal"
+                    id="closeAddRoomBtn">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             ROOM FORM
+        ================================================== -->
+
+        <form id="roomForm">
+
+
+            <!-- ROOM NUMBER -->
+
+            <div class="form-group">
+
+                <label>
+
+                    Room Number
+                    <span>*</span>
+
+                </label>
+
+
+                <input type="text"
+                       id="roomNumber"
+                       placeholder="Enter room number"
+                       required>
+
+            </div>
+
+
+
+            <!-- ROOM TYPE -->
+
+            <div class="form-group">
+
+                <label>
+
+                    Room Type
+                    <span>*</span>
+
+                </label>
+
+
+                <select id="roomType"
+                        required>
+
+
+                    <option value="">
+
+                        Select Room Type
+
+                    </option>
+
+
+                    <option value="2 SHARE">
+
+                        2 Share
+
+                    </option>
+
+
+                    <option value="4 SHARE">
+
+                        4 Share
+
+                    </option>
+
+
+                </select>
+
+            </div>
+
+
+
+            <!-- MONTHLY RENT -->
+
+            <div class="form-group">
+
+                <label>
+
+                    Monthly Rent
+
+                </label>
+
+
+                <div class="rent-box">
+
+                    <span>₹</span>
+
+
+                    <input type="text"
+                           id="roomRent"
+                           value="0"
+                           readonly>
+
+
+                    <span class="lock-icon">
+
+                        🔒
+
+                    </span>
+
+                </div>
+
+
+                <small>
+
+                    Room rent will be determined when the
+                    tenant's food plan is selected.
+
+                </small>
+
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="modal-actions">
+
+
+                <button type="button"
+                        class="cancel-btn"
+                        id="cancelRoomBtn">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="save-btn">
+
+                    Add Room
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="/js/auth.js"></script>
+<script src="/js/room.js"></script>
+
+
+</body>
+
+</html>

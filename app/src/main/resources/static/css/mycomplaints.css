@@ -1,0 +1,1505 @@
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   BODY
+================================================== */
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #f5f7f8;
+
+    color: #333;
+
+}
+
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.container {
+
+    display: flex;
+
+    min-height: 100vh;
+
+}
+
+
+/* ==================================================
+   SIDEBAR
+================================================== */
+
+.sidebar {
+
+    width: 250px;
+
+    min-height: 100vh;
+
+    background: #1A6B72;
+
+    padding: 28px 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo {
+
+    text-align: center;
+
+    color: white;
+
+    margin-bottom: 25px;
+
+}
+
+
+.logo h2 {
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+}
+
+
+.logo span {
+
+    font-size: 13px;
+
+    opacity: 0.9;
+
+}
+
+
+/* ==================================================
+   SIDEBAR MENU
+================================================== */
+
+.sidebar-menu {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.menu-item {
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 12px 16px;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+
+}
+
+
+.menu-item:hover {
+
+    background: rgba(255,255,255,0.12);
+
+}
+
+
+.menu-item.active {
+
+    background: white;
+
+    color: #1A6B72;
+
+}
+
+
+.menu-item .icon {
+
+    width: 22px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+}
+
+
+/* ==================================================
+   LOGOUT
+================================================== */
+
+.logout-btn {
+
+    margin-top: auto;
+
+    border: none;
+
+    background: #ffe1e1;
+
+    color: #d64545;
+
+    padding: 12px 16px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+}
+
+
+/* ==================================================
+   MAIN CONTENT
+================================================== */
+
+.main-content {
+
+    flex: 1;
+
+    padding: 30px;
+
+    overflow-x: auto;
+
+}
+
+
+/* ==================================================
+   TOPBAR
+================================================== */
+
+.topbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+
+}
+
+
+.topbar h1 {
+
+    font-size: 28px;
+
+    color: #17212b;
+
+}
+
+
+.topbar p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 4px;
+
+}
+
+
+.topbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+/* ==================================================
+   PROFILE
+================================================== */
+
+.profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.profile-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #e9f3f4;
+
+    color: #1A6B72;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.profile strong {
+
+    display: block;
+
+    font-size: 13px;
+
+}
+
+
+.profile small {
+
+    display: block;
+
+    color: #888;
+
+    font-size: 10px;
+
+    margin-top: 2px;
+
+}
+
+
+/* ==================================================
+   NOTIFICATION
+================================================== */
+
+.notification-wrapper {
+
+    position: relative;
+
+}
+
+
+.notification-btn {
+
+    position: relative;
+
+    border: none;
+
+    background: white;
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    color: #555;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+}
+
+
+.notification-count {
+
+    position: absolute;
+
+    top: 3px;
+
+    right: 2px;
+
+    min-width: 17px;
+
+    height: 17px;
+
+    padding: 0 4px;
+
+    border-radius: 50%;
+
+    background: #e54848;
+
+    color: white;
+
+    font-size: 9px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.notification-dropdown {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 48px;
+
+    width: 350px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.15);
+
+    display: none;
+
+    z-index: 100;
+
+    overflow: hidden;
+
+}
+
+
+.notification-dropdown.show {
+
+    display: block;
+
+}
+
+
+.notification-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+
+.notification-header h3 {
+
+    font-size: 14px;
+
+}
+
+
+.notification-header button {
+
+    border: none;
+
+    background: none;
+
+    color: #1A6B72;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+}
+
+
+.notification-list {
+
+    max-height: 300px;
+
+    overflow-y: auto;
+
+}
+
+
+.notification-item {
+
+    display: flex;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border-bottom: 1px solid #f0f0f0;
+
+    cursor: pointer;
+
+}
+
+
+.notification-item:hover {
+
+    background: #fafafa;
+
+}
+
+
+.notification-item.unread {
+
+    background: #f0f8f8;
+
+}
+
+
+.notification-icon {
+
+    width: 35px;
+
+    height: 35px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #e9f3f4;
+
+    color: #1A6B72;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.notification-content strong {
+
+    font-size: 12px;
+
+}
+
+
+.notification-content p {
+
+    font-size: 11px;
+
+    color: #666;
+
+    margin-top: 3px;
+
+}
+
+
+.notification-time {
+
+    font-size: 9px;
+
+    color: #999;
+
+    margin-top: 5px;
+
+}
+
+
+.notification-empty {
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #999;
+
+    font-size: 12px;
+
+}
+
+
+/* ==================================================
+   SUMMARY CARDS
+================================================== */
+
+.summary-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.summary-card {
+
+    background: white;
+
+    border-radius: 13px;
+
+    padding: 19px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,0.05);
+
+}
+
+
+.summary-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
+
+}
+
+
+.total-icon {
+
+    background: #e9f3f4;
+
+    color: #1A6B72;
+
+}
+
+
+.open-icon {
+
+    background: #fff3dd;
+
+    color: #b87900;
+
+}
+
+
+.progress-icon {
+
+    background: #e9eefc;
+
+    color: #5267a8;
+
+}
+
+
+.resolved-icon {
+
+    background: #e7f7ed;
+
+    color: #198754;
+
+}
+
+
+.summary-card p {
+
+    color: #888;
+
+    font-size: 11px;
+
+}
+
+
+.summary-card h2 {
+
+    color: #222;
+
+    font-size: 22px;
+
+    margin-top: 2px;
+
+}
+
+
+/* ==================================================
+   COMPLAINT CARD
+================================================== */
+
+.complaint-card {
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,0.05);
+
+}
+
+
+/* ==================================================
+   CARD HEADER
+================================================== */
+
+.complaint-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 22px;
+
+}
+
+
+.complaint-card-header h3 {
+
+    font-size: 17px;
+
+    color: #222;
+
+}
+
+
+.complaint-card-header p {
+
+    font-size: 12px;
+
+    color: #888;
+
+    margin-top: 3px;
+
+}
+
+
+/* ==================================================
+   RAISE COMPLAINT
+================================================== */
+
+.raise-complaint-btn {
+
+    border: none;
+
+    background: #1A6B72;
+
+    color: white;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+
+.raise-complaint-btn:hover {
+
+    opacity: 0.9;
+
+}
+
+
+/* ==================================================
+   TOOLBAR
+================================================== */
+
+.toolbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.search-box {
+
+    width: 320px;
+
+    height: 40px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 12px;
+
+    color: #999;
+
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    margin-left: 8px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+}
+
+
+.filter-select {
+
+    width: 150px;
+
+    height: 40px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 0 10px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    color: #555;
+
+}
+
+
+/* ==================================================
+   TABLE
+================================================== */
+
+.table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 900px;
+
+}
+
+
+thead {
+
+    background: #fafafa;
+
+}
+
+
+th {
+
+    padding: 13px 12px;
+
+    text-align: left;
+
+    font-size: 11px;
+
+    color: #777;
+
+    font-weight: 600;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+
+td {
+
+    padding: 14px 12px;
+
+    font-size: 12px;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+
+tbody tr:hover {
+
+    background: #fafcfc;
+
+}
+
+
+/* ==================================================
+   COMPLAINT
+================================================== */
+
+.complaint-title {
+
+    font-weight: 600;
+
+    color: #222;
+
+}
+
+
+.complaint-description {
+
+    max-width: 250px;
+
+    color: #777;
+
+}
+
+
+/* ==================================================
+   CATEGORY BADGE
+================================================== */
+
+.category-badge {
+
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background: #edf4f5;
+
+    color: #1A6B72;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+}
+
+
+/* ==================================================
+   STATUS
+================================================== */
+
+.status-badge {
+
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+}
+
+
+.status-open {
+
+    background: #fff3dd;
+
+    color: #b87900;
+
+}
+
+
+.status-in-progress {
+
+    background: #e9eefc;
+
+    color: #5267a8;
+
+}
+
+
+.status-resolved {
+
+    background: #e7f7ed;
+
+    color: #198754;
+
+}
+
+
+.status-cancelled {
+
+    background: #fde8e8;
+
+    color: #d64545;
+
+}
+
+
+/* ==================================================
+   ACTION
+================================================== */
+
+.action-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+
+.view-btn,
+.cancel-complaint-btn {
+
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 7px 10px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+}
+
+
+.view-btn {
+
+    background: #edf4f5;
+
+    color: #1A6B72;
+
+}
+
+
+.cancel-complaint-btn {
+
+    background: #fde8e8;
+
+    color: #d64545;
+
+}
+
+
+.view-btn:hover,
+.cancel-complaint-btn:hover {
+
+    opacity: 0.85;
+
+}
+
+
+/* ==================================================
+   EMPTY
+================================================== */
+
+.empty-row {
+
+    text-align: center;
+
+    color: #999;
+
+    padding: 35px !important;
+
+}
+
+
+/* ==================================================
+   MODAL OVERLAY
+================================================== */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 1000;
+
+}
+
+
+.modal-overlay.show {
+
+    display: flex;
+
+}
+
+
+/* ==================================================
+   MODAL
+================================================== */
+
+.modal {
+
+    width: 520px;
+
+    max-width: 92%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.2);
+
+}
+
+
+.small-modal {
+
+    width: 450px;
+
+}
+
+
+/* ==================================================
+   MODAL HEADER
+================================================== */
+
+.modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 23px;
+
+}
+
+
+.modal-header h2 {
+
+    color: #222;
+
+    font-size: 19px;
+
+}
+
+
+.modal-header p {
+
+    color: #888;
+
+    font-size: 11px;
+
+    margin-top: 4px;
+
+}
+
+
+.close-modal {
+
+    border: none;
+
+    background: transparent;
+
+    color: #888;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+.close-modal:hover {
+
+    color: #333;
+
+}
+
+
+/* ==================================================
+   FORM
+================================================== */
+
+.form-group {
+
+    margin-bottom: 17px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+}
+
+
+.form-group label span {
+
+    color: #e54848;
+
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 10px 11px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #1A6B72;
+
+}
+
+
+.form-group textarea {
+
+    resize: vertical;
+
+}
+
+
+/* ==================================================
+   MODAL ACTIONS
+================================================== */
+
+.modal-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+.cancel-btn,
+.submit-btn,
+.danger-btn {
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 10px 17px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+}
+
+
+.cancel-btn {
+
+    background: #f1f3f4;
+
+    color: #555;
+
+}
+
+
+.submit-btn {
+
+    background: #1A6B72;
+
+    color: white;
+
+}
+
+
+.danger-btn {
+
+    background: #d64545;
+
+    color: white;
+
+}
+
+
+/* ==================================================
+   VIEW CONTENT
+================================================== */
+
+.view-content {
+
+    display: grid;
+
+    gap: 17px;
+
+}
+
+
+.view-item span {
+
+    display: block;
+
+    color: #888;
+
+    font-size: 11px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.view-item strong {
+
+    color: #222;
+
+    font-size: 13px;
+
+}
+
+
+.view-description {
+
+    color: #555;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==================================================
+   CANCEL WARNING
+================================================== */
+
+.cancel-warning {
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: flex-start;
+
+    padding: 15px;
+
+    background: #fff8f8;
+
+    border: 1px solid #f2d6d6;
+
+    border-radius: 8px;
+
+}
+
+
+.cancel-warning i {
+
+    color: #d64545;
+
+    font-size: 18px;
+
+}
+
+
+.cancel-warning p {
+
+    color: #666;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1050px) {
+
+    .summary-cards {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .sidebar {
+
+        width: 210px;
+
+    }
+
+
+    .main-content {
+
+        padding: 22px;
+
+    }
+
+
+    .toolbar {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .search-box,
+    .filter-select {
+
+        width: 100%;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .summary-cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .topbar {
+
+        align-items: flex-start;
+
+    }
+
+
+    .profile {
+
+        display: none;
+
+    }
+
+
+    .complaint-card-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 14px;
+
+    }
+
+}
